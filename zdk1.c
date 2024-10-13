@@ -29,7 +29,7 @@ int readNoRowsInFile(const char* filename) {
     }
 
     while (fgets(buffer, MAX_LINE, filePointer) != NULL) {
-        counter++; // Prebrojava svaki redak u datoteci
+        counter++;
     }
 
     fclose(filePointer);
@@ -40,7 +40,7 @@ int readNoRowsInFile(const char* filename) {
 int main() {
     int i = 0, noRows = 0;
 
-    // Postavi apsolutni put do datoteke
+    
     const char* filename = "C:\\Users\\Antun\\Desktop\\VS DEMO\\PrviZadatak\\bodovi.txt";
 
     noRows = readNoRowsInFile(filename);
