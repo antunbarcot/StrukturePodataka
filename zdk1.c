@@ -1,3 +1,11 @@
+//Napisati program koji prvo procita koliko redaka ima datoteka, 
+//tj.koliko ima studenata zapisanih u datoteci. Nakon toga potrebno 
+//je dinamicki alocirati prostor za niz struktura studenata(ime, prezime, bodovi) 
+//i ucitati iz datoteke sve zapise.Na ekran ispisati ime, prezime, apsolutni i
+//relativni broj bodova.Napomena: Svaki redak datoteke sadrzi ime i prezime studenta, 
+//te broj bodova na kolokviju. Relativan_br_bodova = br_bodova / max_br_bodova * 100
+
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
@@ -18,11 +26,16 @@ typedef struct _student {
     double points;
 } Student;
 
-int readNoRowsInFile(const char* filename) {
+int readNoRowsInFile() {
+
     int counter = 0;
     char buffer[MAX_LINE] = { 0 };
 
+    const char* filename = "C:\\Users\\Antun\\Desktop\\VS DEMO\\PrviZadatak\\bodovi.txt";
+
     FILE* filePointer = fopen(filename, "r");
+
+
     if (!filePointer) {
         printf("File not opened!\n");
         return FILE_ERROR_OPEN;
@@ -38,12 +51,12 @@ int readNoRowsInFile(const char* filename) {
 }
 
 int main() {
-    int i = 0, noRows = 0;
 
-    
+
+    int i = 0, noRows = 0;
     const char* filename = "C:\\Users\\Antun\\Desktop\\VS DEMO\\PrviZadatak\\bodovi.txt";
 
-    noRows = readNoRowsInFile(filename);
+    noRows = readNoRowsInFile();
 
     if (noRows > 0) {
         FILE* filePointer = fopen(filename, "r");
@@ -68,7 +81,7 @@ int main() {
             }
         }
 
-        printf("Ime\t\tPrezime\t\tApsolutni bodovi\tRelativni bodovi\n");
+        printf("Ime\t\tPrezime\t\tAps.bodovi\tRel.bodovi\n");
         for (i = 0; i < noRows; i++) {
             double relativePoints = (students[i].points / MAX_POINTS) * 100;
             printf("%s\t\t%s\t\t%.2lf\t\t%.2lf%%\n", students[i].name, students[i].surname, students[i].points, relativePoints);
