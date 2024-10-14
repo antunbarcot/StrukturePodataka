@@ -31,10 +31,7 @@ int readNoRowsInFile() {
     int counter = 0;
     char buffer[MAX_LINE] = { 0 };
 
-    const char* filename = "C:\\Users\\Antun\\Desktop\\VS DEMO\\PrviZadatak\\bodovi.txt";
-
-    FILE* filePointer = fopen(filename, "r");
-
+    FILE* filePointer = fopen("studenti.txt", "r");
 
     if (!filePointer) {
         printf("File not opened!\n");
@@ -54,12 +51,11 @@ int main() {
 
 
     int i = 0, noRows = 0;
-    const char* filename = "C:\\Users\\Antun\\Desktop\\VS DEMO\\PrviZadatak\\bodovi.txt";
 
     noRows = readNoRowsInFile();
 
     if (noRows > 0) {
-        FILE* filePointer = fopen(filename, "r");
+        FILE* filePointer = fopen("studenti.txt", "r");
         if (!filePointer) {
             printf("File not opened!\n");
             return FILE_ERROR_OPEN;
