@@ -1,0 +1,5 @@
+2024-11-18
+Pecivo, 1, 2
+Kruska, 4, 1
+Vino, 1, 9
+Casa, 3, 9

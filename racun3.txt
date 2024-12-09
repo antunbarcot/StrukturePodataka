@@ -1,0 +1,4 @@
+2024-11-20
+Kruska, 10, 1
+Marmelada, 1, 6
+Pecivo, 2, 2
