@@ -24,6 +24,7 @@ void Printcurrentlevel(tree* root, int level);
 int Search(tree* root, int value); 
 tree* Delete(tree* root, int value); 
 tree* Min(tree* root); 
+void FreeTree(tree* root); 
 
 
 
@@ -102,7 +103,9 @@ int main() {
 			break;
 
 		case 8:
-			printf("Izlaz.\n"); 
+			printf("Izlaz. Oslobodena memorija.\n"); 
+			FreeTree(root); 
+			root = NULL; 
 			break; 
 
 		default: 
@@ -267,4 +270,15 @@ tree* Delete(tree* root, int data) {
 	}
 
 	return root; 
+}
+
+void FreeTree(tree* root) {
+
+	if (root == NULL)
+		return; 
+
+	FreeTree(root->left); 
+	FreeTree(root->right); 
+
+	free(root); 
 }
